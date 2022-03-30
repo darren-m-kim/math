@@ -29,8 +29,11 @@
    (gdc/css [:.bordered {:border "1px solid #000"}])))
 
 (defn about-page []
-  [:div {:class "container bordered"}
-   [:h1 "Welcome to Darren's Linear Algrabra Study"]])
+  [:div {:class "container"}
+   [:h1 "Welcome to Darren's Linear Algrabra Study"]
+   [:h3 "Example 7"]
+   [:p (str "What vector \\(\\begin{bmatrix} x \\\\ y \\end{bmatrix}\\) satisfies "
+            "\\(\\begin{bmatrix} 2 \\\\ 4 \\end{bmatrix}\\)")]])
 
 (defn item-page [match]
   (let [{:keys [path query]} (:parameters match)
@@ -75,7 +78,7 @@
   (rtfe/start!
    (rtf/router routes {:data {:coercion rtcs/coercion}})
    (fn [m] (reset! match m))
-   {:use-fragment true}) ; set to false to enable HistoryAPI
+   {:use-fragment true})
   (render!))
 
 (defn ^:export refresh! []

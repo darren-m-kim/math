@@ -13,6 +13,6 @@
                 :output-dir "resources/public/js"
                 :modules {:main {:init-fn math.core/init!}}
                 :devtools {:preloads [devtools.preload]
-                           :after-load math.core/refresh!
+                           :after-load math.core/init!
                            :http-root "resources/public"
                            :http-port 2374}}}}
